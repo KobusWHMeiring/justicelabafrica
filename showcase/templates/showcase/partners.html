@@ -1,0 +1,31 @@
+{% extends "showcase/base.html" %}
+
+{% block title %}Our Partners - Justice Lab Africa{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1 class="page-header__title">Our Partners</h1>
+        <p class="page-header__subtitle">We collaborate with law firms and foundations to scale our impact.</p>
+    </div>
+</div>
+
+<div class="container content-section">
+    <h2>Partnership Model</h2>
+    <p>Static text explaining the partnership model goes here.</p>
+
+    <div class="partners-grid">
+        {% for partner in all_partners %}
+        <div class="partner-card">
+            <a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">
+                <img src="{{ partner.logo.url }}" alt="{{ partner.name }} Logo" class="partner-card__logo">
+                <h3 class="partner-card__name">{{ partner.name }}</h3>
+                <span class="partner-card__tier">{{ partner.get_tier_display }}</span>
+            </a>
+        </div>
+        {% empty %}
+        <p>A list of our valued partners will be displayed here soon.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

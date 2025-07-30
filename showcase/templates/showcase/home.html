@@ -1,0 +1,78 @@
+{% extends "showcase/base.html" %}
+{% load static %}
+
+{% block title %}Justice Lab Africa - Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero__container">
+        <div class="hero__text">
+            <h2 class="hero__heading">Building free digital tools to improve public access to justice.</h2>
+            <p class="hero__subheading">We create simple, free-to-use digital tools that help people navigate common legal challenges and empower them to take action.</p>
+            <div class="hero__actions">
+                <a href="#tools" class="button button--primary">View Our Tools</a>
+                <a href="{% url 'showcase:partners' %}" class="button button--secondary">Become a Partner</a>
+            </div>
+        </div>
+        <div class="hero__image-wrapper">
+            <img src="{% static 'showcase/images/hero-illustration.png' %}" alt="People collaborating" class="hero__image">
+        </div>
+    </div>
+</section>
+
+<!-- Tools Section -->
+<section id="tools" class="tools-section">
+    <div class="container text-center">
+        <h2 class="section-title">Our Tools</h2>
+        <p class="section-subtitle">Simple, trusted tools to help you with common legal issues.</p>
+        <div class="tools-section__grid">
+            {% for tool in tools %}
+            <div class="tool-card">
+                <span class="material-icons tool-card__icon">{{ tool.icon_class|default:'gavel' }}</span>
+                <h3 class="tool-card__title">{{ tool.name }}</h3>
+                <p class="tool-card__description">{{ tool.description }}</p>
+                {% if tool.status == 'LIVE' %}
+                    <a href="{{ tool.tool_url }}" target="_blank" class="button button--primary tool-card__link">Launch Tool</a>
+                {% else %}
+                    <span class="button button--disabled tool-card__link">Coming Soon</span>
+                {% endif %}
+            </div>
+            {% empty %}
+            <p>Our tools are currently being updated. Please check back soon!</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Impact Section -->
+<section id="impact" class="impact-section">
+    <div class="container text-center">
+        <h2 class="section-title">Our Impact</h2>
+        <div class="impact-section__grid">
+            {% for metric in impact_metrics %}
+            <div class="impact-metric">
+                <p class="impact-metric__value">{{ metric.value }}</p>
+                <p class="impact-metric__title">{{ metric.title }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- Partners Section -->
+<section id="partners" class="partners-section">
+    <div class="container text-center">
+        <h2 class="section-title">Our Trusted Partners</h2>
+        <p class="section-subtitle">We are proud to work with leading organizations to close the justice gap.</p>
+        <div class="partners-section__logos">
+            {% for partner in partners %}
+            <a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">
+                <img src="{{ partner.logo.url }}" alt="{{ partner.name }} Logo" class="partners-section__logo-img">
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

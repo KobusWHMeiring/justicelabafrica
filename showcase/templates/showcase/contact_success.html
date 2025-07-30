@@ -1,0 +1,16 @@
+{% extends "showcase/base.html" %}
+
+{% block title %}Message Sent - Justice Lab Africa{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1 class="page-header__title">Thank You!</h1>
+        <p class="page-header__subtitle">Your message has been sent successfully. We'll get back to you shortly.</p>
+    </div>
+</div>
+
+<div class="container content-section text-center">
+    <a href="{% url 'showcase:home' %}" class="button button--primary">Return to Home</a>
+</div>
+{% endblock %}
