@@ -1,31 +1,88 @@
 {% extends "showcase/base.html" %}
 
-{% block title %}Our Partners - Justice Lab Africa{% endblock %}
+{% block title %}Partner With Us - Justice Lab Africa{% endblock %}
 
 {% block content %}
 <div class="page-header">
     <div class="container">
         <h1 class="page-header__title">Our Partners</h1>
-        <p class="page-header__subtitle">We collaborate with law firms and foundations to scale our impact.</p>
+        <p class="page-header__subtitle">We collaborate with leading law firms and foundations to scale our impact.</p>
     </div>
 </div>
 
 <div class="container content-section">
-    <h2>Partnership Model</h2>
-    <p>Static text explaining the partnership model goes here.</p>
+    <!-- Section 1: Introduction -->
+    <div class="partner-intro">
+        <h2 class="partner-intro__title">Become a Partner in Justice</h2>
+        <p class="partner-intro__text">
+            The justice gap in South Africa is significant. For millions, the legal system remains complex, expensive, and out of reach. We believe technology is the most scalable way to bridge that gap. Justice Lab Africa was founded on a simple principle: to build free, high-quality digital tools that empower ordinary people to understand and enforce their rights.
+        </p>
+    </div>
 
-    <div class="partners-grid">
-        {% for partner in all_partners %}
-        <div class="partner-card">
-            <a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">
-                <img src="{{ partner.logo.url }}" alt="{{ partner.name }} Logo" class="partner-card__logo">
-                <h3 class="partner-card__name">{{ partner.name }}</h3>
-                <span class="partner-card__tier">{{ partner.get_tier_display }}</span>
-            </a>
+    <!-- Section 2: The Benefits for Partners -->
+    <div class="partnership-benefits">
+        <h2 class="partnership-benefits__title">A New, High-Leverage Approach to Pro Bono</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="material-icons benefit-card__icon">trending_up</span>
+                <h3 class="benefit-card__title">Amplify Your Impact</h3>
+                <p class="benefit-card__text">One hour of your firm's expert legal review on one of our tools can help thousands of users. This is a force multiplier for your pro bono efforts, creating a massive return on social impact.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="material-icons benefit-card__icon">campaign</span>
+                <h3 class="benefit-card__title">Enhance Your Brand</h3>
+                <p class="benefit-card__text">Position your firm as a leader in legal innovation and access to justice. Our partners are prominently featured, showcasing your commitment to a modern, tech-forward vision for the law.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="material-icons benefit-card__icon">groups</span>
+                <h3 class="benefit-card__title">Engage Your Talent</h3>
+                <p class="benefit-card__text">Offer your lawyers a unique opportunity to contribute their expertise to cutting-edge public-good projects—a powerful tool for recruiting and retaining top talent.</p>
+            </div>
         </div>
-        {% empty %}
-        <p>A list of our valued partners will be displayed here soon.</p>
-        {% endfor %}
+    </div>
+
+    <!-- Section 3: How to Help -->
+    <div class="how-to-help">
+        <h2 class="how-to-help__title">How You Can Get Involved</h2>
+        <div class="how-to-help__grid">
+            <div class="help-card">
+                <h3 class="help-card__title">Become a Founding Partner</h3>
+                <p class="help-card__text">Provide the core funding that powers our lab's operations and the development of our entire Digital Justice Suite. This is a strategic partnership for firms looking to make a landmark impact.</p>
+            </div>
+            <div class="help-card">
+                <h3 class="help-card__title">Sponsor a Tool</h3>
+                <p class="help-card__text">Fund the development of a specific tool from our roadmap, such as the "CCMA Referral Helper." Your firm would be the exclusive sponsor of that application.</p>
+            </div>
+            <div class="help-card">
+                <h3 class="help-card__title">Contribute Expertise</h3>
+                <p class="help-card__text">Dedicate pro bono hours from your subject matter experts to help us scope, design, and review new tools, ensuring they are legally sound and practically effective.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Final Call to Action -->
+    <div class="final-cta">
+        <h2 class="final-cta__title">Let's Build the Future, Together.</h2>
+        <p class="final-cta__text">If your organization shares our passion for closing the justice gap through innovation, we would be honored to speak with you.</p>
+        <a href="{% url 'showcase:contact' %}" class="button button--primary final-cta__button">Partner With Us</a>
+    </div>
+
+    <!-- Section 5: Current Partners -->
+    <div class="current-partners">
+        <h2 class="current-partners__title">Our Current Partners</h2>
+        <div class="partners-grid">
+            {% for partner in all_partners %}
+            <div class="partner-card">
+                <a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">
+                    <img src="{{ partner.logo.url }}" alt="{{ partner.name }} Logo" class="partner-card__logo">
+                    <h3 class="partner-card__name">{{ partner.name }}</h3>
+                    <span class="partner-card__tier">{{ partner.get_tier_display }}</span>
+                </a>
+            </div>
+            {% empty %}
+            <p>A list of our valued partners will be displayed here soon.</p>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

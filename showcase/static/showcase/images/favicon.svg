@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    path { fill: #003366; } /* Dark blue color */
+    @media (prefers-color-scheme: dark) {
+      path { fill: #FFFFFF; } /* White for dark mode */
+    }
+  </style>
+  <path d="M50,5 C55,5 90,20 90,50 L90,80 C90,85 55,95 50,95 C45,95 10,85 10,80 L10,50 C10,20 45,5 50,5 Z M45,30 L45,45 L30,45 L30,55 L45,55 L45,70 L55,70 L55,55 L70,55 L70,45 L55,45 L55,30 L45,30 Z" />
+</svg>

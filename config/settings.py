@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+# DEBUG will be set using environ below
 import environ
 import os
 
@@ -22,6 +23,11 @@ env = environ.Env(
 )
 
 env.read_env(os.path.join(BASE_DIR, '.env'))
+DEBUG = env.bool('DEBUG', default=True)
+
+
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -30,7 +36,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY', default='django-insecure-4akq-=y%)fwl(mh)ef9#40-s@t#du$6a9@5sc_ld%3&qn)mtch')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=True)
+
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
@@ -82,16 +88,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db(),
+    'default': env.db(
+        'DATABASE_URL',  # Explicitly look for this variable
+        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}'
+    )
 }
-# Fallback to SQLite for local development if DATABASE_URL is not set
-if not DATABASES['default']:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
 
 
 # Password validation
