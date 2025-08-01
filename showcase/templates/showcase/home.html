@@ -5,14 +5,14 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero">
+<section class="hero hero-gradient">
     <div class="container hero__container">
         <div class="hero__text">
             <h2 class="hero__heading">Building free digital tools to improve public access to justice.</h2>
             <p class="hero__subheading">We create simple, free-to-use digital tools that help people navigate common legal challenges and empower them to take action.</p>
             <div class="hero__actions">
-                <a href="#tools" class="button button--primary">View Our Tools</a>
-                <a href="{% url 'showcase:partners' %}" class="button button--secondary">Become a Partner</a>
+                <a href="#tools" class="btn btn-primary">View Our Tools</a>
+                <a href="{% url 'showcase:partners' %}" class="btn btn-secondary btn--inverted">Become a Partner</a>
             </div>
         </div>
         <div class="hero__image-wrapper">
@@ -33,9 +33,9 @@
                 <h3 class="tool-card__title">{{ tool.name }}</h3>
                 <p class="tool-card__description">{{ tool.description }}</p>
                 {% if tool.status == 'LIVE' %}
-                    <a href="{{ tool.tool_url }}" target="_blank" class="button button--primary tool-card__link">Launch Tool</a>
+                    <a href="{{ tool.tool_url }}" target="_blank" class="btn btn-primary tool-card__link">Launch Tool</a>
                 {% else %}
-                    <span class="button button--disabled tool-card__link">Coming Soon</span>
+                    <span class="btn btn-disabled tool-card__link">Coming Soon</span>
                 {% endif %}
             </div>
             {% empty %}
@@ -57,7 +57,7 @@
                 <span class="material-icons tool-card__icon">work</span>
                 <h3 class="tool-card__title">CCMA Referral Helper</h3>
                 <p class="tool-card__description">A step-by-step guide to help employees correctly fill out and prepare their referral forms for the Commission for Conciliation, Mediation and Arbitration (CCMA).</p>
-                <div class="button button--disabled tool-card__link">Coming Soon</div>
+                <div class="btn btn-disabled tool-card__link">Coming Soon</div>
             </div>
             
             <!-- Coming Soon Card 2 -->
@@ -65,7 +65,7 @@
                 <span class="material-icons tool-card__icon">home_work</span>
                 <h3 class="tool-card__title">Domestic Worker Contract Generator</h3>
                 <p class="tool-card__description">A simple wizard to create a legally compliant employment contract for domestic workers, protecting the rights of both employers and employees.</p>
-                <div class="button button--disabled tool-card__link">Coming Soon</div>
+                <div class="btn btn-disabled tool-card__link">Coming Soon</div>
             </div>
 
             <!-- Coming Soon Card 3 -->
@@ -73,7 +73,7 @@
                 <span class="material-icons tool-card__icon">family_restroom</span>
                 <h3 class="tool-card__title">Maintenance Claim Guide</h3>
                 <p class="tool-card__description">A tool to help parents understand the maintenance claim process and prepare the necessary documentation for the Maintenance Court.</p>
-                <div class="button button--disabled tool-card__link">Coming Soon</div>
+                <div class="btn btn-disabled tool-card__link">Coming Soon</div>
             </div>
             
         </div>

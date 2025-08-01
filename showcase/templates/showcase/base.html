@@ -7,19 +7,31 @@
     <title>{% block title %}Justice Lab Africa{% endblock %}</title>
     <!-- We will create this CSS file next -->
     <link rel="stylesheet" href="{% static 'showcase/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'showcase/css/justice_lab_styles.css' %}">
     <!-- Google Fonts for Icons and Text -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href="/static/showcase/images/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
     <header class="header">
         <div class="container header__container">
-            <div class="header__brand">
-                <h1 class="header__title">JUSTICE LAB</h1>
-                <p class="header__subtitle">Improving Access to Justice</p>
-            </div>
+           <div class="header__brand">
+    <!-- The entire brand is now a single link -->
+    <a href="/" class="header__brand-link">
+        <!-- The Material Symbols icon -->
+        <span class="material-icons header__brand-icon">
+            balance
+        </span>
+        <!-- A container for the text to keep it grouped -->
+        <div class="header__brand-text">
+            <h1 class="header__title">JUSTICE LAB</h1>
+            <p class="header__subtitle">Improving Access to Justice</p>
+        </div>
+    </a>
+</div>
             <nav class="nav">
                 <a href="{% url 'showcase:home' %}#tools" class="nav__link">Our Tools</a>
                 <a href="{% url 'showcase:about' %}" class="nav__link">About Us</a>
