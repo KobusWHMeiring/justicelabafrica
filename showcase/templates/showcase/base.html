@@ -27,7 +27,7 @@
                 </span>
                 <div class="header__brand-text">
                     <h1 class="header__title">JUSTICE LAB</h1>
-                    <p class="header__subtitle">"Improving Access to Justice"</p>
+                    <p class="header__subtitle">Building tools for Justice</p>
                 </div>
             </a>    
            </div>
@@ -37,9 +37,6 @@
                 <a href="{% url 'showcase:partners' %}" class="nav__link">{% trans "Partners" %}</a>
                 <a href="{% url 'showcase:contact' %}" class="nav__link">{% trans "Contact Us" %}</a>
             </nav>
-            <button class="nav__mobile-toggle">
-                <span class="material-icons">menu</span>
-            </button>
         </div>
     </header>
 
@@ -83,6 +80,30 @@
     {% blocktrans %}© {{ current_year }} Justice Lab. All Rights Reserved.{% endblocktrans %}
 </div>
     </footer>
+
+     <div id="language-modal-overlay" class="modal-overlay">
+        <div class="language-modal">
+            <h2 class="language-modal__title">{% trans "Choose Your Language" %}</h2>
+            <p class="language-modal__text">{% trans "Please select your preferred language to continue." %}</p>
+            <div class="language-modal__actions">
+                {% get_available_languages as LANGUAGES %}
+                {% for lang_code, lang_name in LANGUAGES %}
+                    <button class="language-modal__button" data-lang="{{ lang_code }}">
+                        {{ lang_name }}
+                    </button>
+                {% endfor %}
+            </div>
+            <!-- Hidden form for language switching, controlled by JS -->
+            <form id="language-modal-form" action="{% url 'set_language' %}" method="post" class="language-modal__form">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+                <input name="language" type="hidden">
+            </form>
+        </div>
+    </div>
+
+    <!-- Main JavaScript File -->
+    <script src="{% static 'showcase/js/main.js' %}"></script>
 
 </body>
 </html>
