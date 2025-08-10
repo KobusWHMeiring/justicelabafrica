@@ -1,16 +1,19 @@
 {% extends "showcase/base.html" %}
+{% load i18n %}
 
-{% block title %}Message Sent - Justice Lab Africa{% endblock %}
+{% block title %}{% trans "Message Sent - Justice Lab Africa" %}{% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <div class="container">
-        <h1 class="page-header__title">Thank You!</h1>
-        <p class="page-header__subtitle">Your message has been sent successfully. We'll get back to you shortly.</p>
+<div class="container content-section">
+    <div class="confirmation-card">
+        <div class="confirmation-card__icon-wrapper">
+            <span class="material-icons confirmation-card__icon">check_circle</span>
+        </div>
+        <h1 class="confirmation-card__title">{% trans "Thank You!" %}</h1>
+        <p class="confirmation-card__text">{% trans "Your message has been sent successfully. We'll get back to you as soon as possible." %}</p>
+        <div class="confirmation-card__footer">
+            <a href="{% url 'showcase:home' %}" class="btn btn-primary">{% trans "Return to Home" %}</a>
+        </div>
     </div>
-</div>
-
-<div class="container content-section text-center">
-    <a href="{% url 'showcase:home' %}" class="btn btn--primary">Return to Home</a>
 </div>
 {% endblock %}

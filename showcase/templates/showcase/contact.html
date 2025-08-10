@@ -1,52 +1,90 @@
 {% extends "showcase/base.html" %}
+{% load i18n %}
 
-{% block title %}Contact Us - Justice Lab Africa{% endblock %}
+{% block title %}{% trans "Contact Us - Justice Lab Africa" %}{% endblock %}
 
 {% block content %}
-<div class="page-header">
+<!-- Contact Page Header -->
+<section class="page-header--contact">
+    <div class="container text-center">
+        <h1 class="page-header__main-title">{% trans "Get in Touch" %}</h1>
+        <p class="page-header__main-subtitle">{% trans "Have a question, feedback, or want to discuss a partnership? We’d love to hear from you." %}</p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
     <div class="container">
-        <h1 class="page-header__title">Contact Us</h1>
-        <p class="page-header__subtitle">Have a question or want to partner with us? Drop us a line.</p>
-    </div>
-</div>
+        <div class="contact-section__grid">
 
-<div class="container content-section">
-    <div class="contact-form-wrapper">
-        <form method="post" class="form" novalidate>
-            {% csrf_token %}
-
-            {% if form.non_field_errors %}
-                <div class="form__error-summary">
-                    {{ form.non_field_errors }}
+            <!-- Left Column: Contact Info -->
+            <div class="contact-info">
+                <h2 class="contact-info__title">{% trans "Our Details" %}</h2>
+                <p class="contact-info__text">
+                    {% trans "For general inquiries and partnership opportunities, please use the form. We do our best to respond within 2-3 business days." %}
+                </p>
+                <div class="contact-info__item">
+                    <span class="material-icons contact-info__icon">business</span>
+                    <div class="contact-info__item-details">
+                        <h3 class="contact-info__item-title">{% trans "Based In" %}</h3>
+                        <p>{% trans "Cape Town, South Africa" %}</p>
+                    </div>
                 </div>
-            {% endif %}
-
-            <div class="form__group">
-                {{ form.name.label_tag }}
-                {{ form.name }}
-                {% if form.name.errors %}<div class="form__error">{{ form.name.errors }}</div>{% endif %}
+                <div class="contact-info__item">
+                    <span class="material-icons contact-info__icon">alternate_email</span>
+                     <div class="contact-info__item-details">
+                        <h3 class="contact-info__item-title">{% trans "Email" %}</h3>
+                        <p><a href="mailto:info@justicelab.africa">info@justicelab.africa</a></p>
+                    </div>
+                </div>
+                 <p class="contact-info__text--note">
+                    <strong>{% trans "Please Note:" %}</strong> {% trans "Justice Lab Africa does not provide direct legal advice. Our tools are for informational purposes only." %}
+                </p>
             </div>
 
-            <div class="form__group">
-                {{ form.email.label_tag }}
-                {{ form.email }}
-                {% if form.email.errors %}<div class="form__error">{{ form.email.errors }}</div>{% endif %}
+            <!-- Right Column: Contact Form -->
+            <div class="contact-form-card">
+                <h2 class="contact-form-card__title">{% trans "Send Us a Message" %}</h2>
+                <form method="post" class="form" novalidate>
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <div class="form__error-summary">
+                            {% for error in form.non_field_errors %}
+                               <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="form__group">
+                        <label for="{{ form.name.id_for_label }}" class="form__label">{{ form.name.label }}</label>
+                        {{ form.name }}
+                        {% if form.name.errors %}<div class="form__error-message">{{ form.name.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="form__group">
+                        <label for="{{ form.email.id_for_label }}" class="form__label">{{ form.email.label }}</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}<div class="form__error-message">{{ form.email.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="form__group">
+                         <label for="{{ form.subject.id_for_label }}" class="form__label">{{ form.subject.label }}</label>
+                        {{ form.subject }}
+                        {% if form.subject.errors %}<div class="form__error-message">{{ form.subject.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="form__group">
+                        <label for="{{ form.message.id_for_label }}" class="form__label">{{ form.message.label }}</label>
+                        {{ form.message }}
+                        {% if form.message.errors %}<div class="form__error-message">{{ form.message.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">{% trans "Send Message" %}</button>
+                </form>
             </div>
 
-            <div class="form__group">
-                {{ form.subject.label_tag }}
-                {{ form.subject }}
-                {% if form.subject.errors %}<div class="form__error">{{ form.subject.errors }}</div>{% endif %}
-            </div>
-
-            <div class="form__group">
-                {{ form.message.label_tag }}
-                {{ form.message }}
-                {% if form.message.errors %}<div class="form__error">{{ form.message.errors }}</div>{% endif %}
-            </div>
-
-            <button type="submit" class="btn btn--primary form__submit-button">Send Message</button>
-        </form>
+        </div>
     </div>
-</div>
+</section>
 {% endblock %}

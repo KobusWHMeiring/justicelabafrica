@@ -12,20 +12,18 @@ def contact(request):
     """
     View for the 'Contact' page. Handles form submission.
     """
-    print("Contact view accessed")
     if request.method == 'POST':
-        # This part handles after you click "submit"
         form = ContactForm(request.POST)
         if form.is_valid():
-            # (All your email sending logic is here)
             name = form.cleaned_data['name']
             from_email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
 
-            full_subject = f"Contact Form Submission: {subject}"
-            full_message = f"You have a new message from {name} ({from_email}).\n\n" \
-                           f"Message:\n{message}"
+            # Mark strings for translation
+            full_subject = _("Contact Form Submission: %(subject)s") % {'subject': subject}
+            message_intro = _("You have a new message from %(name)s (%(email)s).\n\nMessage:\n") % {'name': name, 'email': from_email}
+            full_message = f"{message_intro}{message}"
             
             send_mail(
                 subject=full_subject,
@@ -36,16 +34,11 @@ def contact(request):
             
             return redirect(reverse('showcase:contact_success'))
     else:
-        # ---- THIS IS THE CRUCIAL PART FOR DISPLAYING THE FORM ----
-        # This part runs when you first visit the page.
         form = ContactForm()
 
-    # ---- AND THIS PART IS ALSO CRUCIAL ----
-    # This must be outside the if/else, so it runs for both cases
     context = {
         'form': form
     }
-    print(context)
     return render(request, 'showcase/contact.html', context)
 
 def contact_success(request):

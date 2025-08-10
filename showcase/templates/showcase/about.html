@@ -1,16 +1,17 @@
 {% extends "showcase/base.html" %}
 {% load static %}
+{% load i18n %}
 
-{% block title %}Our Focus - Justice Lab Africa{% endblock %}
+{% block title %}{% trans "Our Focus - Justice Lab Africa" %}{% endblock %}
 
 {% block content %}
 <div class="justice-map">
     <div class="container">
         <div class="justice-map__header">
-            <p class="justice-map__pre-title">Our Focus</p>
-            <h1 class="justice-map__title">The Justice Technology Landscape</h1>
+            <p class="justice-map__pre-title">{% trans "Our Focus" %}</p>
+            <h1 class="justice-map__title">{% trans "The Justice Technology Landscape" %}</h1>
             <p class="justice-map__subtitle">
-                We are dedicated to a specific, high-impact area of justice technology to make a real difference.
+                {% trans "We are dedicated to a specific, high-impact area of justice technology to make a real difference." %}
             </p>
         </div>
 
@@ -18,17 +19,17 @@
             <!-- Left Column: Categories -->
             <div class="justice-map__categories">
                 <div class="map-category">
-                    <h3 class="map-category__title">Legal Information Services</h3>
+                    <h3 class="map-category__title">{% trans "Legal Information Services" %}</h3>
                 </div>
                 <div class="map-category">
-                    <h3 class="map-category__title">Data & System Infrastructure</h3>
+                    <h3 class="map-category__title">{% trans "Data & System Infrastructure" %}</h3>
                 </div>
                 <div class="map-category">
-                    <h3 class="map-category__title">AI Co-Pilots & Triage</h3>
+                    <h3 class="map-category__title">{% trans "AI Co-Pilots & Triage" %}</h3>
                 </div>
                 <div class="map-category map-category--active">
                     <h3 class="map-category__title map-category__title--active">
-                        Process & Document Automation
+                        {% trans "Process & Document Automation" %}
                     </h3>
                 </div>
             </div>
@@ -36,24 +37,24 @@
             <!-- Right Column: Our Focus -->
             <div class="justice-map__focus-area">
                 <div class="map-focus-card">
-                    <h2 class="map-focus-card__title">Justice Lab Africa</h2>
+                    <h2 class="map-focus-card__title">{% trans "Justice Lab Africa" %}</h2>
                     <div class="map-focus-card__items">
                         <div class="map-focus-card__item">
-                            <h4 class="map-focus-card__item-title">Guided Interviews</h4>
+                            <h4 class="map-focus-card__item-title">{% trans "Guided Interviews" %}</h4>
                             <p class="map-focus-card__item-text">
-                                Turning complex forms into simple, easy-to-understand questions.
+                                {% trans "Turning complex forms into simple, easy-to-understand questions." %}
                             </p>
                         </div>
                         <div class="map-focus-card__item">
-                            <h4 class="map-focus-card__item-title">Document Generation</h4>
+                            <h4 class="map-focus-card__item-title">{% trans "Document Generation" %}</h4>
                             <p class="map-focus-card__item-text">
-                                Automatically creating accurately formatted legal documents.
+                                {% trans "Automatically creating accurately formatted legal documents." %}
                             </p>
                         </div>
                         <div class="map-focus-card__item">
-                            <h4 class="map-focus-card__item-title">Process Navigation</h4>
+                            <h4 class="map-focus-card__item-title">{% trans "Process Navigation" %}</h4>
                             <p class="map-focus-card__item-text">
-                                Helping users understand and navigate complex legal processes.
+                                {% trans "Helping users understand and navigate complex legal processes." %}
                             </p>
                         </div>
                     </div>
@@ -63,7 +64,7 @@
 
         <div class="justice-map__summary">
             <p>
-                Our lab strategically focuses on automating complex legal processes, a critical area within the justice technology landscape. This focus allows us to have an immediate and tangible impact on the public, streamlining access to justice and improving efficiency within the legal system.
+                {% blocktrans %}Our lab strategically focuses on automating complex legal processes, a critical area within the justice technology landscape. This focus allows us to have an immediate and tangible impact on the public, streamlining access to justice and improving efficiency within the legal system.{% endblocktrans %}
             </p>
         </div>
     </div>

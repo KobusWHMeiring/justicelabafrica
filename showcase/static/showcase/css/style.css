@@ -534,3 +534,435 @@
     font-size: 2rem;
     margin-bottom: 2.5rem;
 }
+.section-super-title {
+    font-size: 2.5rem; /* ~text-4xl */
+    font-weight: 800; /* ~font-extrabold */
+    color: var(--text-dark);
+    letter-spacing: -0.025em; /* ~tracking-tight */
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-title--alt {
+    font-size: 1rem; /* ~text-base */
+    font-weight: 600; /* ~font-semibold */
+    color: var(--action-primary); /* ~text-blue-600 */
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* ~tracking-wide */
+    margin-bottom: 0;
+}
+
+@media (min-width: 640px) {
+    .section-super-title {
+        font-size: 3rem; /* ~sm:text-5xl */
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-super-title {
+        font-size: 3.75rem; /* ~lg:text-6xl */
+    }
+}
+
+/* --- Updated Tools Section Grid --- */
+.tools-section__grid {
+    gap: 2rem; /* Was 1.5rem, updated to match design's gap-8 */
+}
+
+/* --- Updated Tool Card Styles --- */
+.tool-card {
+    background: var(--bg-light);
+    border-radius: 12px; /* ~rounded-xl */
+    box-shadow: var(--box-shadow-sm);
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tool-card:hover {
+    box-shadow: var(--box-shadow-md); /* ~shadow-lg */
+    transform: translateY(-4px);
+}
+
+.tool-card__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 72px;
+    height: 72px;
+    background-color: var(--bg-brand-soft); /* ~bg-blue-100 */
+    border-radius: 50%;
+    margin-bottom: 1.5rem; /* ~mb-6 */
+}
+
+.tool-card__icon {
+    font-size: 36px; /* From design */
+    color: var(--action-primary); /* ~text-blue-600 */
+}
+
+.tool-card__title {
+    font-size: 1.25rem; /* ~text-xl */
+    font-weight: 600; /* ~font-semibold */
+    color: var(--text-dark); /* ~text-gray-800 */
+    margin-top: 0;
+    margin-bottom: 0.75rem; /* ~mb-3 */
+}
+
+.tool-card__description {
+    color: var(--text-muted); /* ~text-gray-600 */
+    line-height: 1.6;
+    flex-grow: 1; /* Pushes the footer down to the bottom */
+}
+
+.tool-card__footer {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+/* ==========================================================================
+   PARTNERS PAGE - NEW/UPDATED STYLES
+   ========================================================================== */
+
+/* --- Page Header for Partners Page --- */
+.page-header--partners {
+    background-color: var(--bg-medium);
+    padding: 4rem 1.5rem;
+    text-align: center;
+    border-bottom: var(--border-standard);
+}
+
+.page-header__main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.1;
+}
+
+.page-header__main-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 1rem auto 0 auto;
+}
+
+/* --- Partner Intro Section --- */
+.partner-intro {
+    padding: 4rem 0;
+    text-align: center;
+}
+.partner-intro__container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.partner-intro__title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+.partner-intro__text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-body);
+}
+
+/* --- Partnership Benefits Grid --- */
+.partnership-benefits {
+    padding-bottom: 4rem;
+}
+
+.benefit-card__icon-wrapper {
+    display: inline-flex;
+    padding: 1rem;
+    background-color: var(--bg-brand-soft);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+.benefit-card__icon {
+    font-size: 2.5rem;
+    color: var(--action-primary);
+}
+.benefit-card__title {
+    font-size: 1.5rem;
+}
+
+/* --- How to Help Section --- */
+.how-to-help {
+    background-color: var(--bg-medium);
+    padding: 4rem 0;
+}
+.how-to-help__title {
+    text-align: center;
+    font-size: 2.25rem;
+    margin-bottom: 3rem;
+}
+
+/* --- Final CTA Section --- */
+.final-cta {
+    padding: 5rem 1.5rem;
+    text-align: center;
+}
+.final-cta__container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.final-cta__title {
+    font-size: 2.5rem;
+}
+.final-cta__text {
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem 0;
+}
+.btn-primary--large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+
+/* --- Current Partners Section --- */
+.current-partners {
+    padding: 4rem 0;
+    border-top: var(--border-standard);
+    background-color: var(--bg-light);
+}
+.current-partners__title {
+    text-align: center;
+    font-size: 2.25rem;
+    margin-bottom: 3rem;
+}
+
+/* --- Partner Card (Redesigned) --- */
+.partner-card {
+    background-color: var(--bg-light);
+    border: var(--border-standard);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: hidden; /* Ensures child elements conform to border-radius */
+    padding: 0; /* Remove old padding */
+}
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+}
+.partner-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+.partner-card__link:hover {
+    text-decoration: none;
+}
+.partner-card__logo-wrapper {
+    background-color: #f9fafb; /* A very light grey to house the logo */
+    padding: 2rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 140px;
+}
+.partner-card__logo {
+    max-height: 70px;
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+}
+.partner-card__details {
+    padding: 1.5rem;
+    text-align: center;
+}
+.partner-card__name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+}
+.partner-card__tier {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   CONTACT & CONFIRMATION PAGES - NEW/UPDATED STYLES
+   ========================================================================== */
+
+/* --- Page Header for Contact Page --- */
+.page-header--contact {
+    background-color: var(--bg-medium);
+    padding: 4rem 1.5rem;
+    text-align: center;
+    border-bottom: var(--border-standard);
+}
+
+/* --- Contact Section Layout --- */
+.contact-section {
+    padding: 4rem 0;
+}
+
+.contact-section__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 992px) {
+    .contact-section__grid {
+        grid-template-columns: 1fr 1.25fr; /* Give form slightly more space */
+        align-items: start;
+    }
+}
+
+/* --- Contact Info (Left Column) --- */
+.contact-info__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.contact-info__text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.contact-info__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info__icon {
+    font-size: 2rem;
+    color: var(--action-primary);
+    margin-top: 0.25rem;
+}
+
+.contact-info__item-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: var(--text-dark);
+}
+
+.contact-info__item-details p {
+    margin: 0;
+    color: var(--text-muted);
+}
+.contact-info__item-details a {
+    color: var(--action-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+.contact-info__text--note {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--bg-soft);
+    border-left: 3px solid var(--action-primary);
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* --- Contact Form Card (Right Column) --- */
+.contact-form-card {
+    background-color: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-md);
+    border: var(--border-standard);
+}
+
+.contact-form-card__title {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+
+/* --- Form Styling Overrides/Additions --- */
+.form__group {
+    margin-bottom: 1.5rem;
+}
+.form__label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-body);
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: var(--text-body);
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form input:focus,
+.form textarea:focus {
+    border-color: var(--action-primary);
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--brand-primary-focus-ring);
+}
+.form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+.form__error-message {
+    color: var(--error);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+.form__error-summary {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+
+/* --- Confirmation Card (Message Sent Page) --- */
+.confirmation-card {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    padding: 4rem 2rem;
+    margin: 4rem auto;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: var(--box-shadow-md);
+}
+.confirmation-card__icon-wrapper {
+    margin-bottom: 1.5rem;
+}
+.confirmation-card__icon {
+    font-size: 5rem; /* 80px */
+    color: var(--success);
+}
+.confirmation-card__title {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin: 0 0 1rem 0;
+}
+.confirmation-card__text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+

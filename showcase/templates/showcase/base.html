@@ -1,10 +1,12 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+{# The lang attribute will be set automatically by Django's LocaleMiddleware #}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Justice Lab Africa{% endblock %}</title>
+    <title>{% block title %}{% trans "Justice Lab Africa" %}{% endblock %}</title>
     <!-- We will create this CSS file next -->
     <link rel="stylesheet" href="{% static 'showcase/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'showcase/css/justice_lab_styles.css' %}">
@@ -19,24 +21,21 @@
     <header class="header">
         <div class="container header__container">
            <div class="header__brand">
-    <!-- The entire brand is now a single link -->
-    <a href="/" class="header__brand-link">
-        <!-- The Material Symbols icon -->
-        <span class="material-icons header__brand-icon">
-            balance
-        </span>
-        <!-- A container for the text to keep it grouped -->
-        <div class="header__brand-text">
-            <h1 class="header__title">JUSTICE LAB</h1>
-            <p class="header__subtitle">Improving Access to Justice</p>
-        </div>
-    </a>
-</div>
+            <a href="/" class="header__brand-link">
+                <span class="material-icons header__brand-icon">
+                    balance
+                </span>
+                <div class="header__brand-text">
+                    <h1 class="header__title">JUSTICE LAB</h1>
+                    <p class="header__subtitle">"Improving Access to Justice"</p>
+                </div>
+            </a>    
+           </div>
             <nav class="nav">
-                <a href="{% url 'showcase:home' %}#tools" class="nav__link">Our Tools</a>
-                <a href="{% url 'showcase:about' %}" class="nav__link">About Us</a>
-                <a href="{% url 'showcase:partners' %}" class="nav__link">Partners</a>
-                <a href="{% url 'showcase:contact' %}" class="nav__link">Contact Us</a>
+                <a href="{% url 'showcase:home' %}#tools" class="nav__link">{% trans "Our Tools" %}</a>
+                <a href="{% url 'showcase:about' %}" class="nav__link">{% trans "About Us" %}</a>
+                <a href="{% url 'showcase:partners' %}" class="nav__link">{% trans "Partners" %}</a>
+                <a href="{% url 'showcase:contact' %}" class="nav__link">{% trans "Contact Us" %}</a>
             </nav>
             <button class="nav__mobile-toggle">
                 <span class="material-icons">menu</span>
@@ -54,18 +53,35 @@
         <div class="container footer__container">
             <div class="footer__brand">
                 <h3 class="footer__title">JUSTICE LAB</h3>
-                <p class="footer__tagline">Building the future of access to justice.</p>
+                <p class="footer__tagline">{% trans "Building the future of access to justice." %}</p>
             </div>
             <div class="footer__nav">
-                <a href="{% url 'showcase:home' %}#tools" class="footer__link">Our Tools</a>
-                <a href="{% url 'showcase:about' %}" class="footer__link">About Us</a>
-                <a href="{% url 'showcase:partners' %}" class="footer__link">Partners</a>
-                <a href="{% url 'showcase:contact' %}" class="footer__link">Contact</a>
+                <a href="{% url 'showcase:home' %}#tools" class="footer__link">{% trans "Our Tools" %}</a>
+                <a href="{% url 'showcase:about' %}" class="footer__link">{% trans "About Us" %}</a>
+                <a href="{% url 'showcase:partners' %}" class="footer__link">{% trans "Partners" %}</a>
+                <a href="{% url 'showcase:contact' %}" class="footer__link">{% trans "Contact" %}</a>
+            </div>
+             <div class="footer__language-switcher">
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}">
+                    <p class="language-nav__title">{% trans "Language" %}:</p>
+                    <select name="language" onchange="this.form.submit()">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% for lang_code, lang_name in LANGUAGES %}
+                            <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                {{ lang_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
             </div>
         </div>
         <div class="footer__bottom-bar">
-            <p>© {% now "Y" %} Justice Lab. All Rights Reserved.</p>
-        </div>
+    {% now "Y" as current_year %}
+    {% blocktrans %}© {{ current_year }} Justice Lab. All Rights Reserved.{% endblocktrans %}
+</div>
     </footer>
 
 </body>

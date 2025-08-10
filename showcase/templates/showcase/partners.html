@@ -1,88 +1,109 @@
 {% extends "showcase/base.html" %}
+{% load i18n %}
 
-{% block title %}Partner With Us - Justice Lab Africa{% endblock %}
+{% block title %}{% trans "Partner With Us - Justice Lab Africa" %}{% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <div class="container">
-        <h1 class="page-header__title">Our Partners</h1>
-        <p class="page-header__subtitle">We collaborate with leading law firms and foundations to scale our impact.</p>
+<!-- Page Header -->
+<section class="page-header--partners">
+    <div class="container text-center">
+        <h1 class="page-header__main-title">{% trans "Become a Partner in Justice" %}</h1>
+        <p class="page-header__main-subtitle">{% trans "We collaborate with leading law firms and foundations to scale our impact." %}</p>
     </div>
-</div>
+</section>
 
 <div class="container content-section">
+
     <!-- Section 1: Introduction -->
-    <div class="partner-intro">
-        <h2 class="partner-intro__title">Become a Partner in Justice</h2>
-        <p class="partner-intro__text">
-            The justice gap in South Africa is significant. For millions, the legal system remains complex, expensive, and out of reach. We believe technology is the most scalable way to bridge that gap. Justice Lab Africa was founded on a simple principle: to build free, high-quality digital tools that empower ordinary people to understand and enforce their rights.
-        </p>
-    </div>
+    <section class="partner-intro">
+        <div class="partner-intro__container">
+            <h2 class="partner-intro__title">{% trans "A New, High-Leverage Approach to Pro Bono" %}</h2>
+            <p class="partner-intro__text">
+                {% blocktrans %}The justice gap in South Africa is significant. For millions, the legal system remains complex, expensive, and out of reach. We believe technology is the most scalable way to bridge that gap. Justice Lab Africa was founded on a simple principle: to build free, high-quality digital tools that empower ordinary people to understand and enforce their rights.{% endblocktrans %}
+            </p>
+        </div>
+    </section>
 
     <!-- Section 2: The Benefits for Partners -->
-    <div class="partnership-benefits">
-        <h2 class="partnership-benefits__title">A New, High-Leverage Approach to Pro Bono</h2>
+    <section class="partnership-benefits">
         <div class="benefits-grid">
             <div class="benefit-card">
-                <span class="material-icons benefit-card__icon">trending_up</span>
-                <h3 class="benefit-card__title">Amplify Your Impact</h3>
-                <p class="benefit-card__text">One hour of your firm's expert legal review on one of our tools can help thousands of users. This is a force multiplier for your pro bono efforts, creating a massive return on social impact.</p>
+                <div class="benefit-card__icon-wrapper">
+                    <span class="material-icons benefit-card__icon">trending_up</span>
+                </div>
+                <h3 class="benefit-card__title">{% trans "Amplify Your Impact" %}</h3>
+                <p class="benefit-card__text">{% trans "One hour of your firm's expert legal review on one of our tools can help thousands of users. This is a force multiplier for your pro bono efforts, creating a massive return on social impact." %}</p>
             </div>
             <div class="benefit-card">
-                <span class="material-icons benefit-card__icon">campaign</span>
-                <h3 class="benefit-card__title">Enhance Your Brand</h3>
-                <p class="benefit-card__text">Position your firm as a leader in legal innovation and access to justice. Our partners are prominently featured, showcasing your commitment to a modern, tech-forward vision for the law.</p>
+                <div class="benefit-card__icon-wrapper">
+                    <span class="material-icons benefit-card__icon">campaign</span>
+                </div>
+                <h3 class="benefit-card__title">{% trans "Enhance Your Brand" %}</h3>
+                <p class="benefit-card__text">{% trans "Position your firm as a leader in legal innovation and access to justice. Our partners are prominently featured, showcasing your commitment to a modern, tech-forward vision for the law." %}</p>
             </div>
             <div class="benefit-card">
-                <span class="material-icons benefit-card__icon">groups</span>
-                <h3 class="benefit-card__title">Engage Your Talent</h3>
-                <p class="benefit-card__text">Offer your lawyers a unique opportunity to contribute their expertise to cutting-edge public-good projects—a powerful tool for recruiting and retaining top talent.</p>
+                <div class="benefit-card__icon-wrapper">
+                    <span class="material-icons benefit-card__icon">groups</span>
+                </div>
+                <h3 class="benefit-card__title">{% trans "Engage Your Talent" %}</h3>
+                <p class="benefit-card__text">{% trans "Offer your lawyers a unique opportunity to contribute their expertise to cutting-edge public-good projects—a powerful tool for recruiting and retaining top talent." %}</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Section 3: How to Help -->
-    <div class="how-to-help">
-        <h2 class="how-to-help__title">How You Can Get Involved</h2>
-        <div class="how-to-help__grid">
-            <div class="help-card">
-                <h3 class="help-card__title">Become a Founding Partner</h3>
-                <p class="help-card__text">Provide the core funding that powers our lab's operations and the development of our entire Digital Justice Suite. This is a strategic partnership for firms looking to make a landmark impact.</p>
-            </div>
-            <div class="help-card">
-                <h3 class="help-card__title">Sponsor a Tool</h3>
-                <p class="help-card__text">Fund the development of a specific tool from our roadmap, such as the "CCMA Referral Helper." Your firm would be the exclusive sponsor of that application.</p>
-            </div>
-            <div class="help-card">
-                <h3 class="help-card__title">Contribute Expertise</h3>
-                <p class="help-card__text">Dedicate pro bono hours from your subject matter experts to help us scope, design, and review new tools, ensuring they are legally sound and practically effective.</p>
+    <section class="how-to-help">
+        <div class="how-to-help__container">
+            <h2 class="how-to-help__title">{% trans "How You Can Get Involved" %}</h2>
+            <div class="how-to-help__grid">
+                <div class="help-card">
+                    <h3 class="help-card__title">{% trans "Become a Founding Partner" %}</h3>
+                    <p class="help-card__text">{% trans "Provide the core funding that powers our lab's operations and the development of our entire Digital Justice Suite. This is a strategic partnership for firms looking to make a landmark impact." %}</p>
+                </div>
+                <div class="help-card">
+                    <h3 class="help-card__title">{% trans "Sponsor a Tool" %}</h3>
+                    <p class="help-card__text">{% trans "Fund the development of a specific tool from our roadmap, such as the \"CCMA Referral Helper.\" Your firm would be the exclusive sponsor of that application." %}</p>
+                </div>
+                <div class="help-card">
+                    <h3 class="help-card__title">{% trans "Contribute Expertise" %}</h3>
+                    <p class="help-card__text">{% trans "Dedicate pro bono hours from your subject matter experts to help us scope, design, and review new tools, ensuring they are legally sound and practically effective." %}</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Section 4: Final Call to Action -->
-    <div class="final-cta">
-        <h2 class="final-cta__title">Let's Build the Future, Together.</h2>
-        <p class="final-cta__text">If your organization shares our passion for closing the justice gap through innovation, we would be honored to speak with you.</p>
-        <a href="{% url 'showcase:contact' %}" class="btn btn-primary final-cta__button">Partner With Us</a>
-    </div>
+    <section class="final-cta">
+        <div class="final-cta__container">
+            <h2 class="final-cta__title">{% trans "Let's Build the Future, Together." %}</h2>
+            <p class="final-cta__text">{% trans "If your organization shares our passion for closing the justice gap through innovation, we would be honored to speak with you." %}</p>
+            <a href="{% url 'showcase:contact' %}" class="btn btn-primary btn-primary--large">{% trans "Partner With Us" %}</a>
+        </div>
+    </section>
 
     <!-- Section 5: Current Partners -->
-    <div class="current-partners">
-        <h2 class="current-partners__title">Our Current Partners</h2>
-        <div class="partners-grid">
-            {% for partner in all_partners %}
-            <div class="partner-card">
-                <a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">
-                    <img src="{{ partner.logo.url }}" alt="{{ partner.name }} Logo" class="partner-card__logo">
-                    <h3 class="partner-card__name">{{ partner.name }}</h3>
-                    <span class="partner-card__tier">{{ partner.get_tier_display }}</span>
-                </a>
+    <section class="current-partners">
+        <div class="current-partners__container">
+            <h2 class="current-partners__title">{% trans "Our Current Partners" %}</h2>
+            <div class="partners-grid">
+                {% for partner in all_partners %}
+                <div class="partner-card">
+                    <a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer" class="partner-card__link">
+                        <div class="partner-card__logo-wrapper">
+                             <img src="{{ partner.logo.url }}" alt="{{ partner.name }} {% trans 'Logo' %}" class="partner-card__logo">
+                        </div>
+                        <div class="partner-card__details">
+                            <h3 class="partner-card__name">{{ partner.name }}</h3>
+                            <span class="partner-card__tier">{{ partner.get_tier_display }}</span>
+                        </div>
+                    </a>
+                </div>
+                {% empty %}
+                <p>{% trans "A list of our valued partners will be displayed here soon." %}</p>
+                {% endfor %}
             </div>
-            {% empty %}
-            <p>A list of our valued partners will be displayed here soon.</p>
-            {% endfor %}
         </div>
-    </div>
+    </section>
+
 </div>
 {% endblock %}

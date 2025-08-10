@@ -14,6 +14,7 @@ from pathlib import Path
 # DEBUG will be set using environ below
 import environ
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -62,6 +63,21 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+]
+
+
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('af', _('Afrikaans')),
+    ('xh', _('Xhosa')),
+    ('zu', _('Zulu')),
+]
+
+# 3. Tell Django where to find your translation files.
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
 ]
 
 ROOT_URLCONF = 'config.urls'
